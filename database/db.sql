@@ -1,0 +1,24 @@
+DROP DATABASE IF EXISTS Product_crud;
+
+CREATE DATABASE Product_crud;
+
+USE Product_crud;
+
+CREATE TABLE USERDETAIL(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    password VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE Category(
+    c_id INT AUTO_INCREMENT PRIMARY KEY,
+    cname VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Product(
+    pid INT AUTO_INCREMENT PRIMARY KEY,
+    pname VARCHAR(20) NOT NULL,
+    price INT(10) NOT NULL,
+    cid INT,
+    FOREIGN KEY (cid) REFERENCES Category(c_id)
+);
